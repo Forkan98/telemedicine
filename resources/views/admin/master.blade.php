@@ -295,9 +295,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span>Patient-Info</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="form_component.html">Form Elements</a></li>
-                            <li><a href="form_validation.html">Form Validation</a></li>
-                            <li><a href="dropzone.html">Dropzone</a></li>
+                            <li><a href="{{ route('search-doctors') }}">Create-Appoinment</a></li>
+                            <li><a href="{{ route('manage-patients') }}">Manage-Patients</a></li>
+                            <li><a href="{{ route('add-patients') }}">Patients-Details</a></li>
                         </ul>
                     </li>
 
@@ -383,7 +383,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- footer -->
         <div class="footer">
             <div class="wthree-copyright">
-                <p>© 2020 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">Runtime Error</a></p>
+                <p align="center"><b>© 2020 Visitors. All rights reserved | Design by <a href="https://github.com/Forkan98/telemedicine
+">Runtime Error</a></b></p>
             </div>
         </div>
         <!-- / footer -->
@@ -483,6 +484,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
     });
+</script>
+
+<script>
+
+    $('.delete-btn').click(function() {
+        var doctorId = $(this).attr('id');
+        event.preventDefault();
+        var check = confirm('Are you sure to delete this ??');
+        if (check){
+            document.getElementById('deleteDoctorForm'+doctorId).submit();
+        }
+    });
+
 </script>
 <!-- //calendar -->
 </body>

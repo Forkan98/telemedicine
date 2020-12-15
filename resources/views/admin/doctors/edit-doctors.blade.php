@@ -18,7 +18,7 @@
                         <label for="fullName" class="col-lg-2 col-sm-2 control-label">Full Name</label>
                         <div class="col-lg-10">
                             <input type="text" name="fullName" class="form-control" value="{{ $doctor->fullName }}" placeholder="Full Name">
-                            <input type="hidden" name="id" class="form-control" value="{{ $doctor->id}}" placeholder="Full Name">
+                            <input type="hidden" name="id" class="form-control" value="{{ $doctor->id }}" placeholder="Full Name">
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@
                     <div class="form-group">
                         <label for="expertIn" class="col-lg-2 col-sm-2 control-label">Expert in</label>
                         <div class="col-lg-10">
-                            <select name="expertise" value="{{ $doctor->expertise}}" class="form-control">
+                            <select name="expertise" value="{{ $doctor->expertise }}" class="form-control">
                                 <option>--Expert in--</option>
                                 <option>Medicine</option>
                                 <option>Heart</option>

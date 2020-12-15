@@ -1,14 +1,16 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[
+    'uses' => 'FrontendController@frontend',
+    'as' => '/'
+]);
 
 
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+// doctor info
 
 Route::get('/doctors/add-doctors',[
     'uses' => 'DoctorsController@addDoctors',
@@ -35,5 +37,37 @@ Route::post('/doctors/update-doctor', [
     'as' => 'update-doctor'
 ]);
 
+Route::post('/doctors/delete-doctors', [
+    'uses' => 'DoctorsController@deleteDoctor',
+    'as' => 'delete-doctors'
+]);
+
+//patient info
+
+Route::get('/patients/search-doctors', [
+    'uses' => 'AppoinmentController@searchDoctors',
+    'as' => 'search-doctors'
+]);
+
+Route::post('/patients/new-search', [
+    'uses' => 'AppoinmentController@newSearch',
+    'as' => 'new-search'
+]);
+
+Route::get('/patients/manage-patients', [
+    'uses' => 'AppoinmentController@managePatients',
+    'as' => 'manage-patients'
+]);
+
+
+Route::get('/patients/add-patients', [
+    'uses' => 'AppoinmentController@addPatients',
+    'as' => 'add-patients'
+]);
+
+Route::post('/patients/new-patients', [
+    'uses' => 'AppoinmentController@newPatients',
+    'as' => 'new-patients'
+]);
 
 

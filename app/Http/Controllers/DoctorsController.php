@@ -16,11 +16,13 @@ class DoctorsController extends Controller
         Doctor::saveDoctorInfo($request);
        return redirect('/doctors/add-doctors')->with('message', 'Doctor info save successfully');
     }
+
     public  function manageDoctor(){
         return view('admin.doctors.manage-doctors',[
             'doctors' => Doctor::all()
         ]);
     }
+
     public function editDoctor($id){
         return view('admin.doctors.edit-doctors',[
             'doctor' => Doctor::find($id)
@@ -28,15 +30,17 @@ class DoctorsController extends Controller
     }
 
     public function updateDoctor(Request $request){
-        $doctor = Doctor::find($request->id);
-        $doctor->fullName  = $request->fullName;
-        $doctor->address   = $request->address;
-        $doctor->contact   = $request->contact;
-        $doctor->email     = $request->email;
-        $doctor->expertise = $request->expertise;
-        $doctor->fee       = $request->fee;
-        $doctor->save();
+        Doctor::updateDoctorInfo($request);
+
         return redirect('/doctors/manage-doctors')->with('message', 'Doctor info update successfully');
+    }
+
+
+    public function deleteDoctor(Request $request){
+        $doctor = Doctor::find($request->id);
+        $doctor -> delete();
+
+        return redirect('/doctors/manage-doctors')->with('message', 'Doctor info delete successfully');
     }
 
 }

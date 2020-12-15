@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDoctorsTable extends Migration
+class CreateAppoinmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,8 @@ class CreateDoctorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctors', function (Blueprint $table) {
+        Schema::create('appoinments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fullName');
-            $table->string('address');
-            $table->string('contact');
-            $table->string('email');
-            $table->string('expertise');
-            $table->string('fee');
-            $table->tinyInteger('status');
             $table->timestamps();
         });
     }
@@ -33,6 +26,6 @@ class CreateDoctorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctors');
+        Schema::dropIfExists('appoinments');
     }
 }

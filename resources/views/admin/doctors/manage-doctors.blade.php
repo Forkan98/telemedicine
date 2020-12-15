@@ -31,6 +31,7 @@
                         <th class="text-center">Email</th>
                         <th class="text-center">Expert in</th>
                         <th class="text-center">Fee</th>
+                        <th class="text-center">Status</th>
                         <th class="text-center">Action</th>
                     </tr>
                     </thead>
@@ -46,8 +47,15 @@
                         <td>{{ $doctor->email }}</td>
                         <td>{{ $doctor->expertise }}</td>
                         <td>{{ $doctor->fee }}</td>
+
+                        <td>{{ $doctor->status == 1 ? 'Maiden' : 'Hidden' }}</td>
+
                         <td>
-                            <button style='color:#000;'><a href=" {{ route('edit-doctors',['id'=>$doctor->id]) }}">Edit</a></button><button style='color:#000;'><a href="">Delete</a></button>
+                            <button style='color:#000;'><a href=" {{ route('edit-doctors',['id'=>$doctor->id]) }} ">Edit</a></button><button style='color:#000;'><a href="#" id="{{ $doctor->id }}" class="delete-btn" >Delete</a></button>
+                            <form id="deleteDoctorForm{{ $doctor->id }}" action=" {{ route('delete-doctors') }} " method="post">
+                                @csrf
+                                <input type="hidden" value="{{ $doctor->id }}" name="id"/>
+                            </form>
                         </td>
                     </tr>
                         @endforeach
