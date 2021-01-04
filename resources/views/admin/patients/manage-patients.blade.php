@@ -62,8 +62,8 @@
 {{--                        <td>{{ $searchDoctor->status == 1 ? 'Maiden' : 'Hidden' }}</td>--}}
 
                         <td>
-                            <button style='color:#000;'><a href=" {{ route('edit-doctors',['id'=>$searchDoctor->id]) }} ">Edit</a></button><button style='color:#000;'><a href="#" id="{{ $searchDoctor->id }}" class="delete-btn" >Delete</a></button>
-                            <form id="deleteDoctorForm{{ $searchDoctor->id }}" action=" {{ route('delete-doctors') }} " method="post">
+                            <button style='color:#000;'><a href=" {{ route('edit-patients',['id'=>$searchDoctor->id]) }} ">Edit</a></button><button style='color:#000;'><a href="" id="{{ $searchDoctor->id }}" class="delete-btn" >Delete</a></button>
+                            <form id="deletePatientForm{{ $searchDoctor->id }}" action=" {{ route('delete-doctors') }} " method="post">
                                 @csrf
                                 <input type="hidden" value="{{ $searchDoctor->id }}" name="id"/>
                             </form>

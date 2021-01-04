@@ -20,7 +20,7 @@ class AppoinmentController extends Controller
     public function newSearch( Request $request){
         //return $request->all();
         SearchDoctor::saveNewSearchInfo($request);
-        return redirect('/patients/manage-patients')->with('message', 'Your booking has been accepted!');
+        return redirect('/patients/search-doctors')->with('message', 'Your booking has been accepted!');
     }
 
     public function managePatients(){
@@ -34,6 +34,24 @@ class AppoinmentController extends Controller
             'searchDoctors' => $search_doctors
         ]);
     }
+    public function editPatients($id){
+        return view('admin.patients.edit-patients',[
+            'doctors'        => Doctor::where('status',1)->get(),
+            'searchDoctor'  => SearchDoctor::find($id)
+        ]);
+    }
+
+    public function updatePatients( Request $request){
+        SearchDoctor::updatePatientInfo($request);
+
+        return redirect('/patients/manage-patients')->with('message', 'Patients info update successfully');
+    }
+
+//    public function deletePatients(Request $request){
+//        $searchDoctor =  SearchDoctor::find($request->id);
+//        $searchDoctor -> delete();
+//        return redirect('/patients/manage-patients')->with('message', 'Patients info delete successfully');
+//    }
 
 
 

@@ -59,6 +59,22 @@ Route::get('/patients/manage-patients', [
     'as' => 'manage-patients'
 ]);
 
+Route::get('/patients/edit-patients/{id}', [
+    'uses' => 'AppoinmentController@editPatients',
+    'as' => 'edit-patients'
+]);
+
+Route::post('/patients/update-patients', [
+    'uses' => 'AppoinmentController@updatePatients',
+    'as' => 'update-patients'
+]);
+
+//Route::post('/patients/delete-patients/{id}', [
+//    'uses' => 'AppoinmentController@deletePatients',
+//    'as' => 'delete-patients'
+//]);
+
+
 
 Route::get('/patients/add-patients', [
     'uses' => 'AppoinmentController@addPatients',
