@@ -69,10 +69,10 @@ Route::post('/patients/update-patients', [
     'as' => 'update-patients'
 ]);
 
-//Route::post('/patients/delete-patients/{id}', [
-//    'uses' => 'AppoinmentController@deletePatients',
-//    'as' => 'delete-patients'
-//]);
+Route::post('/patients/delete-patients/{id}', [
+    'uses' => 'AppoinmentController@deletePatients',
+    'as' => 'delete-patients'
+]);
 
 
 

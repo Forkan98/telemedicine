@@ -63,7 +63,7 @@
 
                         <td>
                             <button style='color:#000;'><a href=" {{ route('edit-patients',['id'=>$searchDoctor->id]) }} ">Edit</a></button><button style='color:#000;'><a href="" id="{{ $searchDoctor->id }}" class="delete-btn" >Delete</a></button>
-                            <form id="deletePatientForm{{ $searchDoctor->id }}" action=" {{ route('delete-doctors') }} " method="post">
+                            <form id="deletePatientForm{{ $searchDoctor->id }}" action=" {{ route('delete-patients') }} " method="post">
                                 @csrf
                                 <input type="hidden" value="{{ $searchDoctor->id }}" name="id"/>
                             </form>

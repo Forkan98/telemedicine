@@ -47,11 +47,11 @@ class AppoinmentController extends Controller
         return redirect('/patients/manage-patients')->with('message', 'Patients info update successfully');
     }
 
-//    public function deletePatients(Request $request){
-//        $searchDoctor =  SearchDoctor::find($request->id);
-//        $searchDoctor -> delete();
-//        return redirect('/patients/manage-patients')->with('message', 'Patients info delete successfully');
-//    }
+    public function deletePatients(Request $request){
+        $searchDoctor =  SearchDoctor::find($request->id);
+        $searchDoctor -> delete();
+        return redirect('/patients/manage-patients')->with('message', 'Patients info delete successfully');
+    }
 
 
 
